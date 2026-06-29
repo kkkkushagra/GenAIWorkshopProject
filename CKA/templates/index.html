@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Knowledge Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div>
+                <h1>College Knowledge Assistant</h1>
+                <p>AI-powered chatbot for institutional documents.</p>
+            </div>
+            <div class="topbar-badge">Student Support</div>
+        </header>
+
+        <main class="main-content">
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>About Project</h3>
+                    <p>Ask questions about academic rules, attendance, placement policies, and hostel guidelines.</p>
+                </div>
+                <div class="card">
+                    <h3>Supported Areas</h3>
+                    <ul>
+                        <li>Academic</li>
+                        <li>Attendance</li>
+                        <li>Placement</li>
+                        <li>Hostel</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="chat-panel">
+                <div class="hero-card">
+                    <h2>Ask your college questions naturally</h2>
+                    <p>Get policy-based answers with clear source references from the institutional documents.</p>
+                </div>
+
+                <div class="suggestion-row">
+                    <button class="suggestion-card" data-question="What is attendance requirement?">What is attendance requirement?</button>
+                    <button class="suggestion-card" data-question="Can I sit in placement with backlog?">Can I sit in placement with backlog?</button>
+                    <button class="suggestion-card" data-question="What are hostel timings?">What are hostel timings?</button>
+                    <button class="suggestion-card" data-question="What is grading system?">What is grading system?</button>
+                </div>
+
+                <div id="chatWindow" class="chat-window">
+                    <div class="message assistant">
+                        <div class="bubble-label">Assistant</div>
+                        <div>Hello! Ask me anything about college policies.</div>
+                    </div>
+                </div>
+
+                <form id="chatForm" class="composer">
+                    <input id="questionInput" type="text" placeholder="Ask your question..." />
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>Developed by Kushagra Trivedi</footer>
+    <script src="/static/script.js"></script>
+</body>
+</html>

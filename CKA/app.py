@@ -1,11 +1,17 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+from starlette.requests import Request
+from starlette.responses import HTMLResponse
 
 from assistant import CollegeKnowledgeAssistant
 
 
 app = FastAPI(title="College Knowledge Assistant", version="1.0.0")
 assistant = CollegeKnowledgeAssistant("data")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
 
 class ChatRequest(BaseModel):
@@ -17,9 +23,9 @@ class ChatResponse(BaseModel):
     source: str
 
 
-@app.get("/")
-def read_root() -> dict[str, str]:
-    return {"message": "College Knowledge Assistant API is running"}
+@app.get("/", response_class=HTMLResponse)
+def read_root(request: Request) -> HTMLResponse:
+    return templates.TemplateResponse(request=request, name="index.html", context={})
 
 
 @app.get("/health")
